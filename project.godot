@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Client",
+"language": "GDScript",
+"path": "res://client/client.gd"
+}, {
+"base": "Node",
 "class": "Rpc",
 "language": "GDScript",
 "path": "res://rpc/rpc.gd"
 } ]
 _global_script_class_icons={
+"Client": "",
 "Rpc": ""
 }
 
@@ -27,6 +33,32 @@ config/icon="res://icon.png"
 [autoload]
 
 NetworkGlobals="*res://network_globals.gd"
+PrintHelper="*res://common/print_helper.gd"
+RpcToServer="*res://rpc/rpc_to_server.gd"
+RpcToClient="*res://rpc/rpc_to_client.tscn"
+
+[input]
+
+up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 
