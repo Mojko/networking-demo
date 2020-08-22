@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://client/client.gd"
 }, {
+"base": "Node2D",
+"class": "NetworkedObject",
+"language": "GDScript",
+"path": "res://client/networked_object.gd"
+}, {
 "base": "Node",
 "class": "Rpc",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Client": "",
+"NetworkedObject": "",
 "Rpc": ""
 }
 

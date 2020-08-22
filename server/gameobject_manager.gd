@@ -15,3 +15,13 @@ func create_game_object(position):
 	next_available_object_id += 1;
 	
 	return object_id;
+	
+func set_gameobject_position(id, position):
+	for go in gameobjects:
+		if(go.id == id):
+			go.position = position;
+	
+func get_gameobject_position(id):
+	for go in gameobjects:
+		if(go.id == id):
+			return go.position;

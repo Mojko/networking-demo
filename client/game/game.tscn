@@ -6,7 +6,7 @@
 [ext_resource path="res://client/game/player_count_label.gd" type="Script" id=4]
 [ext_resource path="res://client/game/world.gd" type="Script" id=5]
 [ext_resource path="res://client/player/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://client/player/player_other.tscn" type="PackedScene" id=7]
+[ext_resource path="res://client/player/other/player_other.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32

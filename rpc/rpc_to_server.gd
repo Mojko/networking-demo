@@ -2,7 +2,14 @@
 
 extends Node
 
-signal gameobject_move(id, old_position, new_position);
+signal gameobject_move(object_id, old_position, new_position);
 
-remote func gameobject_move(id, old_position, new_position):
-	emit_signal("gameobject_move", id, old_position, new_position);
+remote func gameobject_move(object_id, old_position, new_position):
+	emit_signal("gameobject_move", object_id, old_position, new_position);
+
+#Client func
+func _on_gameobject_move(object_id, old_position, new_position):
+	if(!NetworkGlobals.is_server):
+		rpc_unreliable_id(1, "gameobject_move", object_id, old_position, new_position);
+	else:
+		gameobject_move(object_id, old_position, new_position);
