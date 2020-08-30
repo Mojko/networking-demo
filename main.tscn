@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://debug.gd" type="Script" id=2]
+[ext_resource path="res://fps.gd" type="Script" id=3]
+[ext_resource path="res://rpc_calls.gd" type="Script" id=4]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
+
+[node name="debug" type="Control" parent="."]
+margin_right = 212.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="vbox_container" type="VBoxContainer" parent="debug"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="fps" type="Label" parent="debug/vbox_container"]
+margin_right = 78.0
+margin_bottom = 14.0
+text = "FPS: 999999"
+script = ExtResource( 3 )
+
+[node name="rpc_calls" type="Label" parent="debug/vbox_container"]
+margin_top = 18.0
+margin_right = 78.0
+margin_bottom = 32.0
+text = "RPC_CALLS:"
+script = ExtResource( 4 )
+
+[node name="rpc_calls_reset" type="Timer" parent="debug/vbox_container/rpc_calls"]
+autostart = true
+[connection signal="timeout" from="debug/vbox_container/rpc_calls/rpc_calls_reset" to="debug/vbox_container/rpc_calls" method="_on_rpc_calls_reset_timeout"]

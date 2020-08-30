@@ -43,6 +43,10 @@ PrintHelper="*res://common/print_helper.gd"
 RpcToServer="*res://rpc/rpc_to_server.gd"
 RpcToClient="*res://rpc/rpc_to_client.tscn"
 
+[display]
+
+window/vsync/use_vsync=false
+
 [input]
 
 up={

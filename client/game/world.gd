@@ -1,7 +1,5 @@
 extends Node2D
 
-signal gameobject_move(id, old_position, new_position);
-
 export(PackedScene) var player_prefab;
 export(PackedScene) var other_player_prefab;
 

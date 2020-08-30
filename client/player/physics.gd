@@ -10,17 +10,23 @@ func _ready():
 	RpcToClient.connect("set_object_position", self, "_on_server_set_object_position");
 	old_position = global_transform.origin;
 
-func _process(delta):
+var v = 0;
+
+func _physics_process(delta):
 	var direction = Vector2();
 	
+	v += 0.1;
+	direction.x += cos(v);
+	direction.y += sin(v);
+	
 	if(Input.is_action_pressed("up")):
-		direction.y -= 1;
+		direction.y -= 2;
 	if(Input.is_action_pressed("right")):
-		direction.x += 1;
+		direction.x += 2;
 	if(Input.is_action_pressed("down")):
-		direction.y += 1;
+		direction.y += 2;
 	if(Input.is_action_pressed("left")):
-		direction.x -= 1;
+		direction.x -= 2;
 		
 	move_and_slide(direction.normalized() * speed);
 	
@@ -31,4 +37,7 @@ func _on_server_set_object_position(object_id, position):
 	if(get_parent().object_id != object_id):
 		return;
 		
-	global_transform.origin = position;
+	var t = Transform2D(global_transform);
+	t.origin = position;
+	var t2 = global_transform.interpolate_with(t, 0.2);
+	global_transform.origin = t2.origin;
