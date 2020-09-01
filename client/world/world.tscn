@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://client/world/world.gd" type="Script" id=1]
+[ext_resource path="res://client/world/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://client/world/player/other/player_other.tscn" type="PackedScene" id=3]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+player_prefab = ExtResource( 2 )
+other_player_prefab = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0

@@ -10,10 +10,10 @@ func set_object_position(object_id, position):
 	if(get_parent().is_host):
 		RpcToClient.set_object_position(object_id, position);
 		
-func move_object(object_id, old_position, position):
-	RpcToClient.rpc_unreliable("move_object", object_id, old_position, position);
+func move_object(object_id, direction, old_position, position):
+	RpcToClient.rpc_unreliable("move_object", object_id, direction, old_position, position);
 	if(get_parent().is_host):
-		RpcToClient.move_object(object_id, old_position, position);
+		RpcToClient.move_object(object_id, direction, old_position, position);
 		
 func start_game():
 	for client in get_parent().connected_clients:

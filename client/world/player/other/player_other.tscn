@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://client/world/player/other/player_other.gd" type="Script" id=1]
+[ext_resource path="res://client/world/player/other/physics.gd" type="Script" id=2]
+[ext_resource path="res://default/icon.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="player_other" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="physics" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="physics"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="physics"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="name" type="Label" parent="physics"]
+margin_top = -15.0564
+margin_right = 40.0
+margin_bottom = -1.0564
+text = "DEFAULT"
+
+[node name="network_interpoleration" type="Tween" parent="physics"]

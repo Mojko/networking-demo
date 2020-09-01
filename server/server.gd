@@ -1,6 +1,6 @@
 extends Node
 
-onready var game = get_node("host/game");
+onready var lobby = get_node("host/lobby");
 onready var host = get_node("host");
 onready var gameobject_manager = get_node("gameobject_manager");
 onready var player_spawn_manager = get_node("player_spawn_manager");
@@ -11,7 +11,7 @@ const DEFAULT_PORT = 31400;
 const MAX_PLAYERS = 1000;
 
 var is_host : bool = true;
-var in_lobby : bool;
+var in_lobby : bool = true;
 
 var connected_clients = [];
 
@@ -32,10 +32,10 @@ func _connect_server_as_host():
 	});
 	
 	RpcToClient.update_connected_player_count(connected_clients.size(), MAX_PLAYERS);
-	game._on_connected_to_server();
+	lobby._on_connected_to_server();
 	
 func _ready():
-	assert(game);
+	assert(lobby);
 	assert(host);
 	assert(gameobject_manager);
 	assert(player_spawn_manager);
@@ -75,3 +75,6 @@ func _on_client_disconnect(id):
 		rpc_sender.update_connected_player_count();
 	else:
 		rpc_sender.client_disconnected(client_to_disconnect);
+
+func _on_start_game_button_pressed():
+	in_lobby = false;
