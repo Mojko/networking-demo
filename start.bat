@@ -1,7 +1,7 @@
-start Client_31400.exe
-start Client_31400.exe
-start Client_31400.exe
-start Client_31400.exe
-start Client_31400.exe
-start Client_31400.exe
-pause
+start Client.exe
+start Client.exe
+start Client.exe
+start Client.exe
+start Client.exe
+start Client.exe
+start Client.exe

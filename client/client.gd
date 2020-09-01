@@ -2,10 +2,9 @@ extends Node
 class_name Client
 
 onready var game = get_node("game");
-onready var rpc_client_connector = get_node("rpc_client_connector");
 
 # Make this dynamic later
-const SERVER_IP = "127.0.0.1";
+const SERVER_IP = "94.254.18.145";
 const SERVER_PORT = 31400;
 
 func _create_client(server_ip, server_port):
@@ -16,7 +15,6 @@ func _create_client(server_ip, server_port):
 
 func _ready():
 	assert(game);
-	assert(rpc_client_connector);
 	
 	var result = _create_client(SERVER_IP, SERVER_PORT);
 	
@@ -25,5 +23,4 @@ func _ready():
 	if(result == OK):
 		print("Connecting to server...");
 	
-	rpc_client_connector.connect_rpc_signals(RpcToClient, game);
 	get_tree().connect("connected_to_server", game, "_on_connected_to_server");

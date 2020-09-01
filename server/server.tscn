@@ -1,25 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://server/server.gd" type="Script" id=1]
-[ext_resource path="res://common/rpc_client_connector.tscn" type="PackedScene" id=2]
-[ext_resource path="res://client/game/game.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://client/game/game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://server/player_spawn_manager.gd" type="Script" id=4]
 [ext_resource path="res://server/gameobject_manager.gd" type="Script" id=5]
+[ext_resource path="res://server/rpc_sender.gd" type="Script" id=6]
+[ext_resource path="res://server/rpc_reciever.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [node name="server" type="Node"]
 script = ExtResource( 1 )
 
-[node name="rpc_client_connector" parent="." instance=ExtResource( 2 )]
-
 [node name="host" type="Node" parent="."]
 
-[node name="game" parent="host" instance=ExtResource( 3 )]
+[node name="game" parent="host" instance=ExtResource( 2 )]
 
 [node name="ui" type="Control" parent="host"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.29236
@@ -39,7 +38,16 @@ margin_bottom = -91.0
 custom_fonts/font = SubResource( 1 )
 text = "START GAME"
 
+[node name="player_spawn_manager" type="Node" parent="."]
+script = ExtResource( 4 )
+
 [node name="gameobject_manager" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="rpc_sender" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="rpc_reciever" type="Node" parent="."]
+script = ExtResource( 7 )
+[connection signal="pressed" from="host/ui/start_game_button" to="rpc_sender" method="start_game"]
 [connection signal="pressed" from="host/ui/start_game_button" to="host/ui" method="queue_free"]
-[connection signal="pressed" from="host/ui/start_game_button" to="." method="start_game"]

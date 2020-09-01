@@ -10,6 +10,9 @@ func _ready():
 	assert(world);
 	lobby_ui.hide();
 	
+	RpcToClient.connect("update_connected_player_count", self, "_on_update_connected_player_count");
+	RpcToClient.connect("start_game", self, "_on_start_game");
+	
 func _on_update_connected_player_count(player_count, max_player_count):
 	lobby_ui.update_player_count(player_count, max_player_count);
 
