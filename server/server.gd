@@ -12,8 +12,6 @@ const MAX_PLAYERS = 1000;
 
 var is_host : bool = true;
 var in_lobby : bool;
-var next_position_x = 200;
-var next_position_y = 200;
 
 var connected_clients = [];
 
@@ -28,11 +26,9 @@ func _create_server(port, max_connections):
 	PrintHelper.print_server("Server created");
 	
 func _connect_server_as_host():
-	var object_id = gameobject_manager.create_game_object(Vector2(next_position_x, next_position_y));
-	
 	connected_clients.append({
 		"id": 1,
-		"object_id": object_id
+		"object_id": null
 	});
 	
 	RpcToClient.update_connected_player_count(connected_clients.size(), MAX_PLAYERS);
@@ -52,13 +48,13 @@ func _ready():
 		_connect_server_as_host();
 	else:
 		host.queue_free();
-
 	
 func _on_client_connect(id):
 	PrintHelper.print_server("Client with id(" + str(id) + ") connected to the server");
 	
 	connected_clients.append({
 		"id": id,
+		"object_id": null
 	});
 	
 	rpc_sender.update_connected_player_count();

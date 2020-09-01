@@ -4,7 +4,7 @@ class_name Client
 onready var game = get_node("game");
 
 # Make this dynamic later
-const SERVER_IP = "94.254.18.145";
+const SERVER_IP = "127.0.0.1";
 const SERVER_PORT = 31400;
 
 func _create_client(server_ip, server_port):
