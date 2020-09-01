@@ -33,12 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="networking-demo"
-run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://common/main.tscn"
+config/icon="res://default/icon.png"
 
 [autoload]
 
-NetworkGlobals="*res://network_globals.gd"
+NetworkGlobals="*res://common/network_globals.gd"
 PrintHelper="*res://common/print_helper.gd"
 RpcToServer="*res://rpc/rpc_to_server.gd"
 RpcToClient="*res://rpc/rpc_to_client.tscn"
@@ -75,4 +75,4 @@ left={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://default/default_env.tres"

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-b1240f35350ece9f0b1fdedd8f41112a.stex"
+path="res://.import/icon.png-56d0bc4d9e35c592c21ddc7ac604ba3d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://holepunch/addons/Holepunch/icon.png"
-dest_files=[ "res://.import/icon.png-b1240f35350ece9f0b1fdedd8f41112a.stex" ]
+source_file="res://default/icon.png"
+dest_files=[ "res://.import/icon.png-56d0bc4d9e35c592c21ddc7ac604ba3d.stex" ]
 
 [params]
 
